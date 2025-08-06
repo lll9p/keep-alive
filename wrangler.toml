@@ -2,3 +2,8 @@ name = "keepalive"
 main = "_worker.js"
 compatibility_date = "2025-07-23"
 keep_vars = true
+
+[[d1_databases]]
+binding = "render_keeper_d1"
+database_name = "render_keeper_d1"
+database_id = "render_keeper_d1"
