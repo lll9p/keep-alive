@@ -6,4 +6,6 @@ keep_vars = true
 [[d1_databases]]
 binding = "render_keeper_d1"
 database_name = "render_keeper_d1"
-database_id = "render_keeper_d1"
+
+[observability.logs]
+enabled = true
