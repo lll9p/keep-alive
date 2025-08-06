@@ -77,7 +77,7 @@ const Database = {
     }
   },
 
-  async initApiConfigs(db) {
+  async initApiConfigs(db, env) {
     dbOperationsCount++;
     try {
       const existingApis = await db
@@ -1040,7 +1040,7 @@ export default {
       // 初始化数据库
       const db = env.render_keeper_d1;
       await Database.init(db);
-      await Database.initApiConfigs(db);
+      await Database.initApiConfigs(db, env);
 
       // 预加载API统计数据
       if (!CACHE.apiStats) {
@@ -1146,7 +1146,7 @@ export default {
           headers: { "Content-Type": "application/json" },
         });
       } else if (path === "/api/update-configs" && request.method === "POST") {
-        await Database.initApiConfigs(env.render_keeper_d1);
+        await Database.initApiConfigs(env.render_keeper_d1, env);
         CACHE.apiStats = null;
         return new Response(
           JSON.stringify({
@@ -1234,7 +1234,7 @@ export default {
 
     try {
       await Database.init(env.render_keeper_d1);
-      await Database.initApiConfigs(env.render_keeper_d1);
+      await Database.initApiConfigs(env.render_keeper_d1, env);
 
       const apiStats = await Storage.getAllStats(env);
       const apiIndices = Array.from({ length: apiStats.length }, (_, i) => i);
