@@ -15,7 +15,7 @@ const CONFIG = {
   CACHE_TTL: 300000, // 增加到5分钟，减少数据库查询
   MAX_RETRIES: 3,
   DEBUG_MODE: false, // 生产环境关闭调试日志
-  QUESTIONS: [],
+  QUESTIONS: [], // 在环境变量中定义多个问题
 };
 
 // 调试日志函数
